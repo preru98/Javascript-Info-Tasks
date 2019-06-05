@@ -1,9 +1,12 @@
 let image=document.querySelector('#imageID');
 let buttonVar=document.querySelector('#button1');
-let intervalVar;
+let intervalVar,flag=0;
 buttonVar.addEventListener('click',function(){
-    console.log('HEllo');
+    console.log('One');
+    if(flag==1)
+ clearInterval(intervalVar);   
  intervalVar=setInterval(moveRight,2000);
+           
 })
 function moveRight()
 {
@@ -20,8 +23,9 @@ let convertedNum=parseInt(shortString);
 return convertedNum;
 }
 buttonVar.addEventListener('dblclick',function(){
-    console.log('HEllo');
-    clearInterval(intervalVar);
+    console.log('Two');
+   // clearInterval(intervalVar);
     image.style.left='10px';
-//image.setAttribute('left','10px');
+    flag=1;
+   //image.setAttribute('left','10px');
 })
