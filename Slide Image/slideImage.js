@@ -2,8 +2,9 @@ let image=document.querySelector('#imageID');
 let buttonVar=document.querySelector('#button1');
 buttonVar.addEventListener('click',function(){
     console.log('HEllo');
-setInterval(moveRight,20);
+setInterval(moveRight,16);
 })
+//acceleration missing
 function moveRight()
 {
     let leftNumeric=convertNumber(window.getComputedStyle(image).left);
@@ -15,6 +16,6 @@ function moveRight()
 function convertNumber(leftString)
 {
 let shortString=leftString.substring(0,leftString.length-2);
-let convertedNum=parseInt(shortString);
+let convertedNum=parseFloat(shortString);
 return convertedNum;
 }
