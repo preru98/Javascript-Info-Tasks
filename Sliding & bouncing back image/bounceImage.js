@@ -13,7 +13,7 @@
     {
         let leftNumeric=convertNumber(window.getComputedStyle(image).left);
         speed+=0.05;
-        leftNumeric+=speed;
+        leftNumeric+=speed;// acceleration effects
         newLeft=leftNumeric+'px';
         console.log(newLeft);
         image.style.left=newLeft;
