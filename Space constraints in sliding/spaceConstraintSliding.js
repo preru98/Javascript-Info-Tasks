@@ -43,7 +43,7 @@ function moveRight()
      leftNumeric+=speed;// acceleration effects
 
      //stop the image
-     if(leftNumeric>=(screenWidth)) //leftNumeric>=(screenWidth+ imageWidth)) 
+     if(leftNumeric>=(screenWidth-imageWidth))//leftNumeric>=(screenWidth+ imageWidth)) 
      {
         console.log('Two');
         clearInterval(intervalVar);
