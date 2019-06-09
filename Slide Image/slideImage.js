@@ -1,7 +1,7 @@
 let image=document.querySelector('#imageID');
 let buttonVar=document.querySelector('#button1');
 buttonVar.addEventListener('click',function(){
-    console.log('HEllo');
+    console.log('Hello');
 setInterval(moveRight,16);
 })
 //acceleration missing
@@ -16,6 +16,6 @@ function moveRight()
 function convertNumber(leftString)
 {
 let shortString=leftString.substring(0,leftString.length-2);
-let convertedNum=parseFloat(shortString);
+let convertedNum=parseFloat(shortString); //parseInt
 return convertedNum;
 }
