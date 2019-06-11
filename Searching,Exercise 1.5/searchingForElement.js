@@ -9,5 +9,7 @@ alert(outerDiv+' Fifth Statement');
    //It won't work until first, second and third statements are commented-out
    //name conflicts with outerDiv
    //using getElementById will be less cumbersome
-let outerDiv=document.getElementById('outerDiv');
-alert(outerDiv+' Sixth Statement');
+//let outerDiv=document.getElementById('outerDiv');
+//alert(outerDiv+' Sixth Statement');
+let outerDiv=document.querySelectorAll(outerDiv);
+alert(outerDiv+' Seventh Statement');
