@@ -1,15 +1,20 @@
-let varInterval,speedx=1,speedy=1,flagx=1,flagy=1;
+let varInterval,flagx=1,flagy=1;let xVarCurrent,yVarCurrent,speedx,speedy;
 let varBody=document.querySelector('body');
 let varImage=document.querySelector('#image1')
 //  alert(varBody);  //doubt 1
 varBody.addEventListener('click',function(event){
 // alert('coordinates' + event.pageX+':'+event.pageY);
-let centreX=event.pageX-40;
-let centreY=event.pageY-40;
-moveRight(centreX,centreY);
+
+let centreX=event.clientX-40;
+let centreY=event.clientY-40;
+xVarCurrent=convertNumber(window.getComputedStyle(varImage).left);
+yVarCurrent=convertNumber(window.getComputedStyle(varImage).top);
+speedx=((centreX-xVarCurrent)/15);
+speedy=((centreY-yVarCurrent)/15);
 
 varInterval=setInterval( function(){
-    moveRight(centreX,centreY);
+    
+     moveRight(centreX,centreY);
 },16);
 // varInterval=setInterval(moveRight,centreX,centreY,16);
 
@@ -28,31 +33,36 @@ varInterval=setInterval( function(){
 
 function moveRight(x,y){
     let xVarCurrent=convertNumber(window.getComputedStyle(varImage).left);
+    console.log('xVarCurrent:'+xVarCurrent);
     let yVarCurrent=convertNumber(window.getComputedStyle(varImage).top);
-
-    // console.log(xVarCurrent); //num value
-    // console.log(" : ");
+    console.log('yVarCurrent:'+yVarCurrent);
+    console.log('x value:'+ x); //num value
+    console.log('y value:'+ y); //num value
     
-    if(xVarCurrent<=x)
-        { 
-          speedx+=0.5;
+    if(xVarCurrent<x)
+       {
           xVarCurrent+=speedx;
           let xNewString=xVarCurrent+'px';
           varImage.style.left=xNewString;
         }
     else
-          flagx=0;
-console.log(flagx);
-    if(yVarCurrent<=y)
+         {flagx=0;
+          console.log('value bigger than x');
+         }
+         console.log(flagx);
+    if(yVarCurrent<y)
         {
-          speedy+=0.5;
-          yVarCurrent+=speedy;
+            
+           yVarCurrent+=speedy;
            let yNewString=yVarCurrent+'px';
            varImage.style.top=yNewString;
         }
     else 
-           flagy=0;
-           console.log(flagy);
+          { flagy=0;
+            console.log('value bigger than y');
+            
+          }
+          console.log(flagy);
     if(flagx===0 && flagy===0)
    { clearInterval(varInterval);
      flagx=1;
