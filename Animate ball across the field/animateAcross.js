@@ -8,10 +8,10 @@ let centreX=event.pageX-40;
 let centreY=event.pageY-40;
 moveRight(centreX,centreY);
 
-// varInterval=setInterval( function(){
-//     moveRight(centreX,centreY);
-// },16);
-varInterval=setInterval(moveRight,centreX,centreY,16);
+varInterval=setInterval( function(){
+    moveRight(centreX,centreY);
+},16);
+// varInterval=setInterval(moveRight,centreX,centreY,16);
 
 //calling moveright func
 // varInterval=setInterval(function(){
@@ -53,8 +53,10 @@ console.log(flagx);
     else 
            flagy=0;
            console.log(flagy);
-    if(flagx===0 || flagy===1)
-    clearInterval(varInterval);
+    if(flagx===0 && flagy===0)
+   { clearInterval(varInterval);
+     flagx=1;
+     flagy=1; }
     
     // console.log(xVarCurrent); //coverted
 
