@@ -1,3 +1,5 @@
+returnPos();
+let myMap = L.map('mapID').setView([51.505, -0.09], 13);
 async function returnPos(){
     const response= await fetch('https://api.wheretheiss.at/v1/satellites/25544');
     const data=await response.json();
@@ -6,4 +8,5 @@ async function returnPos(){
     document.getElementById('Longitude').textContent=longitude;
     document.getElementById('Latitude').textContent=latitude;
 }
-returnPos();
+
+//setInterval(returnPos,1500);
