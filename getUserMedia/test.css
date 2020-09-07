@@ -1,0 +1,11 @@
+#user{
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px green solid;
+}
+#camera-feed{
+	width: 500px;
+	height: 375px;
+	background-color: yellow;
+}
