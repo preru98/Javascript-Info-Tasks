@@ -10,6 +10,7 @@ stopButton.addEventListener('click', () =>{
         console.log(tracks[i]);
         tracks[i].stop();
     }
+    videoFeed.srcObject=null;
 });
 
 startButton.addEventListener('click', () =>{
