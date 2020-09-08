@@ -4,6 +4,7 @@ let captureButton = document.querySelector('#capture');
 let combineButton = document.querySelector('#merge');
 let startButton = document.querySelector('#start');
 let canvas = document.createElement('canvas');
+
 let imageShow = document.getElementById('res-image');
 let borderImage = document.getElementById('border');
 let photoboothDocument= document.getElementById('photobooth');
@@ -46,13 +47,34 @@ captureButton.addEventListener('click', () => {
 combineButton.addEventListener('click', () => {
     console.log("In here");
     console.log(borderImage);
-    canvas.style.width =  500;
-    canvas.style.height = 375;
+    
+    // canvas.style.width =  borderImage.naturalWidth;
+    // canvas.style.height = borderImage.naturalHeight;
+
+    // canvas.width =  500;
+    // canvas.height = 375;
+
+    borderImage.style.width = 500;
+    borderImage.style.height = 375;
+
+    imageShow.style.width = 500;
+    imageShow.style.height = 375;
+
+    console.group(borderImage.width);
+    console.group(borderImage.height);
+    
+    console.group(imageShow.width);
+    console.group(imageShow.height);
     console.log(canvas);
-    // drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+
     canvas.getContext('2d').drawImage(imageShow, 0, 0, 500, 375, 0, 0, 500, 375);
     // canvas.getContext('2d').globalAlpha = 0.5;
-    canvas.getContext('2d').drawImage(borderImage, 0, 0, 500, 375, 0, 0, 500, 375);
+    canvas.getContext('2d').drawImage(borderImage, 0, 0, borderImage.naturalWidth, borderImage.naturalHeight, 0, 0, canvas.width, canvas.height);
+ 
+    // canvas.getContext('2d').drawImage(imageShow, 0, 0, 500, 375, 0, 0, imageShow.naturalWidth, imageShow.naturalHeight);
+    // // canvas.getContext('2d').globalAlpha = 0.5;
+    // canvas.getContext('2d').drawImage(borderImage, 0, 0, 500, 375, 0, 0, borderImage.naturalWidth, borderImage.naturalHeight);
+    
     photoboothDocument.src = canvas.toDataURL('image/webp');
 });
 
