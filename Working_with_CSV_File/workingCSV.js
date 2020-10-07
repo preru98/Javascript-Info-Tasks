@@ -2,7 +2,7 @@ async function buildChart(){
 let getData=await readData();
 let ctx = document.getElementById('chart').getContext('2d');
 let myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
         labels: getData.xs,
         datasets: [{
